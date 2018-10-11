@@ -14,6 +14,8 @@ var uglify = require("gulp-uglify");
 var babel = require("gulp-babel");
 // css 插件;
 var cleanCss = require("gulp-clean-css");
+// sass 编译插件;
+var sass = require("gulp-sass-china");
 
 
 gulp.task('connect', function() {
@@ -38,7 +40,8 @@ gulp.task("html", ()=>{
 })
 
 gulp.task("watch", ()=>{
-    gulp.watch("index.html",["html"]);
+    gulp.watch("index.html",["html","sass"]);
+    gulp.watch("sass/*.scss",["html","sass"]);
 })
 
 gulp.task("default",["watch","connect"]);
@@ -57,6 +60,13 @@ gulp.task("css", ()=>{
            .pipe(cleanCss())
            .pipe(gulp.dest("dist/css"))
 })
+
+gulp.task("sass", () =>{
+    return gulp.src(["sass/*.scss"])
+           .pipe(sass().on("error",sass.logError))
+           .pipe(gulp.dest("dist/css"))
+})
+
 // 编译 ? es6 => es5;
 
 gulp.task("es6",()=>{

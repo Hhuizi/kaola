@@ -1,1 +1,16 @@
-body{margin:0;padding:0}li{list-style-type:none}
+body {
+  background: #cd6767;
+  color: #f99; }
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: #000; }
+
+html {
+  font-size: 18px; }
+
+.box2 {
+  width: 5.55556rem;
+  height: 5.55556rem;
+  background: yellowgreen; }

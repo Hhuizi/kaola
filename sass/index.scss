@@ -1,0 +1,86 @@
+// 是 css 预编译器;
+// 目的 还是写 css;
+// 变量 ; 函数 ; 逻辑 ; 色值运算; 
+@import "_mixin.scss";
+@import "_function.scss";
+// 变量;
+$color:#f99;
+// body{
+//     background: $color; 
+//     color:$color;
+// }
+
+// sass 完整支持css ; 
+// css 可以随意的卸载sass文件里 ;
+
+// .box1{
+//     background:$color;
+// }
+// .box2{
+//     background:$color;
+// }
+// .box3{
+//     background:$color;
+// }
+
+// sass 哪里好 ?;
+body{
+    background: $color - 50; 
+    color:$color;
+}
+
+// 混合 mixin ;
+
+// @mixin transform{
+//     -webkit-transform: rotate(30deg);
+//     -ms-transform: rotate(30deg);
+//     -o-transform: rotate(30deg);
+//     -moz-transform: rotate(30deg);
+//     transform: rotate(30deg);
+// }
+// .box{
+//     width: 100px;
+//     height: 100px;
+//     background: #001;
+//     @include transform();
+//     font-size: 100px;
+// }
+
+// .box2{
+//     width: 200px;
+//     height: 200px;
+//     background: yellowgreen;@include transform();
+// }
+
+// @mixin 传参;
+
+// .box{
+//     width: 100px;
+//     height: 100px;
+//     background: #001;
+//     @include transform(rotate(30deg));
+//     font-size: 100px;
+//     @include transition;
+// }
+
+// .box2{
+//     width: 200px;
+//     height: 200px;
+//     background: yellowgreen; @include transform(rotate(60deg));
+   
+// }
+
+// 函数;
+.box{
+    width: 100px;
+    height: 100px;
+    background: #000;
+}
+html{
+    font-size: $rootSize;
+}
+.box2{
+    width: pxToRem(100px);
+    height: pxToRem(100px);
+    background: yellowgreen;
+}
