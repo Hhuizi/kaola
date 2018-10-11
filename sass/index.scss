@@ -4,7 +4,7 @@
 @import "_mixin.scss";
 @import "_function.scss";
 // 变量;
-$color:#f99;
+$color:#ddd;
 // body{
 //     background: $color; 
 //     color:$color;
@@ -25,7 +25,7 @@ $color:#f99;
 
 // sass 哪里好 ?;
 body{
-    background: $color - 50; 
+    background: $color + 10; 
     color:$color;
 }
 
@@ -71,11 +71,11 @@ body{
 // }
 
 // 函数;
-.box{
-    width: 100px;
-    height: 100px;
-    background: #000;
-}
+// .box{
+//     width: 100px;
+//     height: 100px;
+//     background: #000;
+// }
 html{
     font-size: $rootSize;
 }
@@ -83,4 +83,82 @@ html{
     width: pxToRem(100px);
     height: pxToRem(100px);
     background: yellowgreen;
+} 
+
+// .box{
+//     span{
+//         color:yellowgreen;
+//     }
+// }
+.box{
+    width: 100px;
+    height: 100px;
+    background: #000;
+    @include transition;
+
+    span{
+        color:yellowgreen;
+    }
+    strong{
+        color:antiquewhite;
+        text-align: center;
+    }
+    &:hover{
+        @include transform(rotate(180deg));
+    }
+}
+// 很有趣的东西; 循环;
+
+// sass 里面的数组; 符合变量;
+
+// $list : 10px 20px;
+
+// // sass给我们提供了非常多的方法;
+
+// // nth();
+// .box{
+//     span{
+//         font-size: nth($list , 2);
+//     }
+// }
+
+// 复杂数组;
+
+// $list : (box1 10px) (box2 15px) (box3 20px) (box4 30px) (box5 40px);
+
+// .box {
+//     span{
+//         font-size: nth(nth($list , 1),2)
+//     }
+// }
+
+// @each $class,$size in $list {
+//     .#{$class}{
+//         font-size: $size;
+//     }
+// }
+
+// @at-root;
+
+// 跳出包围;
+
+// .box{
+//     span{
+//         font-size: 10px;
+//         @at-root strong {
+//             font-size : 20px;
+//         }
+//     }
+// }
+
+.sidebar {
+    width: 300px;
+    @media screen and (max-width:400px) {
+      width: 500px;
+    }
+  }
+
+  // @extend 继承;
+.box2{
+    @extend .box;
 }
