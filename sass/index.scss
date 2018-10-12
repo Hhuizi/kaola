@@ -33,13 +33,15 @@
             top: 40px;
 
             li{
-                width: 180px;
+                width: 280px;
                 height: 60px;
                 background: rgba(0,0,0,.5);
 
                 img{
+                    display: inline-block;
                     height: 60px;
                     float: left;
+                    width: 40px;
                 }
                 h3{
                     float: left;
